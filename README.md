@@ -1,14 +1,10 @@
 # 简介
 
-***
-
 该网站采用前后端分离 restful风格的架构，由scrapy爬取提供数据
 
 
 
 ## 前端部分
-
----
 
 这个仓库即前端部分
 
@@ -83,15 +79,66 @@ ReactDom.render(<App />, document.getElementById('root'));
 
 
 
-### 后端部分
+## 后端部分
 
 https://github.com/abuwillbebest/back-end
 
 
 
+前后端分离可以减少耦合，前端负责数据展示逻辑，后端负责数据获取调度逻辑。
+
+还可以修改nginx与uwsgi间http通信为uwsgi通信，以增加效率
 
 
-### 爬虫部分
+
+MySQL初始化也在此部分
+
+
+
+```python
+
+class Novel(models.Model):
+    class Meta:
+        db_table = 'novel'
+
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=128, null=False)
+    desc = models.TextField(null=False)
+    author = models.CharField(max_length=16, null=False)
+    noveltype = models.CharField(max_length=16, null=False)
+    tags = models.CharField(max_length=255, null=True)
+
+
+class Text(models.Model):
+    class Meta:
+        db_table = 'text'
+
+    id = models.AutoField(primary_key=True)
+    content = models.TextField(null=False)
+
+
+
+class Chapter(models.Model):
+    class Meta:
+        db_table = 'chapter'
+
+    id = models.AutoField(primary_key=True)
+    c_title = models.CharField(max_length=256, null=False)
+    words = models.IntegerField()
+    ctime = models.IntegerField()
+    novel = models.ForeignKey(Novel)
+    content = models.ForeignKey(Text)
+
+
+```
+
+
+
+
+
+
+
+## 爬虫部分
 
 https://github.com/abuwillbebest/scrapy-data_source
 
@@ -99,7 +146,15 @@ https://github.com/abuwillbebest/scrapy-data_source
 
 
 
-此外，数据库的初始化也在此部分
+本次scrapy通用爬虫爬取纵横小说网
+
+
+
+用一个通用爬虫按爬虫跳转顺序
+
+`书类索引->小说详情->第一章->下一页->……->完结`
+
+解决了小说章节顺序连贯的问题。
 
 
 
