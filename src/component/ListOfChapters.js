@@ -68,7 +68,7 @@ class LOC extends React.Component {
                 </div>
             );
         } else {
-            return (<div><Skeleton active /></div>)
+            return (<div><Skeleton active paragraph={{ rows: 20 }} /></div>)
         }
     }
 }

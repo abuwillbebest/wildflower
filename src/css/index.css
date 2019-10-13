@@ -1,0 +1,21 @@
+@import '~antd/dist/antd.css';
+
+.logo {
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  color: #ffffff;
+  line-height: 31px;
+  text-decoration: none;
+  width: 120px;
+  height: 31px;
+  /* background: rgba(255, 255, 255, 0.2); */
+  background: rgba(248, 252, 21, 0.411);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+
+img {
+  width:100%;
+height:auto;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { inject, parse_qs } from '../utils';
+import { inject } from '../utils';
 import { List, Card, Pagination, Breadcrumb, Icon, Skeleton, message, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react';
@@ -72,7 +72,7 @@ class LOT extends React.Component {
         </div>
       );
     } else {
-      return (<div><Skeleton active /></div>)
+      return (<div><Skeleton active paragraph={{ rows: 20 }} /></div>)
     }
   }
 }

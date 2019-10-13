@@ -7,11 +7,12 @@ import LOC from './component/ListOfChapters';
 import ShowContent from './component/ShowContent';
 import SC from './component/Search';
 
-// import 'antd/lib/menu/style';
-// import 'antd/lib/icon/style';
-// import 'antd/lib/layout/style';
-// import 'antd/lib/carousel/style';
+import 'antd/lib/menu/style';
+import 'antd/lib/icon/style';
+import 'antd/lib/layout/style';
+import 'antd/lib/carousel/style';
 
+import './css/carousel.css';
 import './css/index.css'
 
 
@@ -19,25 +20,23 @@ const { Header, Content, Footer } = Layout;
 
 const Home = function () {
   return (
-    <div>
-    <Carousel autoplay effect="fade">
+    <Carousel autoplay>
       <div>
-        <img src='src/img/x1.jpg' alt="x1" />
+        <img src='src/img/x1.jpg' alt="x1" style={{ width: '100%' }} />
       </div>
       <div>
-        <img src='src/img/x2.jpg' alt="x2" />
+        <img src='src/img/x2.jpg' alt="x2" style={{ width: '100%' }} />
       </div>
       <div>
-        <img src='src/img/x3.jpg' alt="x3" />
+        <img src='src/img/x3.jpg' alt="x3" style={{ width: '100%' }} />
       </div>
       <div>
-        <img src='src/img/x4.jpg' alt="x4" />
+        <img src='src/img/x4.jpg' alt="x4" style={{ width: '100%' }} />
       </div>
       <div>
-        <img src='src/img/x5.jpg' alt="x5" />
+        <img src='src/img/x5.jpg' alt="x5" style={{ width: '100%' }} />
       </div>
     </Carousel>
-    </div>
   )
 };
 
@@ -61,7 +60,7 @@ const App = () => (
   <Router>
     <Layout>
       <Header>
-        <span className="logo">Wild Flower</span>
+        <div className="logo"></div>
         <Menu mode="horizontal" theme="dark" defaultSelectedKeys={['home']} style={{ lineHeight: '64px' }}>
           <Menu.Item key="home"><Link to="/"><Icon type="home" />主页</Link></Menu.Item>
           <Menu.Item key="qihuan"><Link to="/type/1"><Icon type="appstore" />奇幻玄幻</Link></Menu.Item>
