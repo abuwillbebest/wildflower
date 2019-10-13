@@ -1,6 +1,6 @@
 import React from 'react';
 import { inject, parse_qs } from '../utils';
-import { List, Card, Pagination, PageHeader, Tag, Breadcrumb, Icon, Skeleton } from 'antd';
+import { List, Card, Pagination, PageHeader, Tag, Breadcrumb, Icon, Skeleton, message } from 'antd';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react';
 
@@ -35,6 +35,12 @@ class LOC extends React.Component {
 
     render() {
         let data = this.props.service.posts;
+
+        if (this.props.service.errMsg) {
+            message.info(this.props.service.errMsg, 3,
+                () => setTimeout(() => this.props.service.errMsg = ''), 1000);
+        }
+
         if (data.length) {
             const heads = this.props.service.heads;
             const pagination = this.props.service.pagination;
@@ -50,7 +56,14 @@ class LOC extends React.Component {
                         </Breadcrumb.Item>
                         <Breadcrumb.Item><Icon type="book" /><span>{heads.title}</span></Breadcrumb.Item>
                     </Breadcrumb>
-                    <PageHeader title={heads.title} subTitle={heads.desc} tags={<Tag color="blue">{heads.tags}</Tag>} />
+                    <PageHeader
+                        title={heads.title}
+                        subTitle={heads.desc}
+                        tags={<div>{heads.tags.split(' ').map((d, n) => {
+                            return (
+                                <Tag color="blue" key={n}>{d}</Tag>
+                            );
+                        })}</div>} />
                     <List style={{ minHeight: 520 }}
                         grid={{
                             gutter: 16, xs: 1, sm: 2, md: 4, lg: 4, xl: 4, xxl: 4,

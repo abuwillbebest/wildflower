@@ -86,9 +86,9 @@ class ShowContent extends React.Component {
                                     <Title>{info.c_title}</Title>
                                     <Text strong='true' type="secondary">作者：{info.author} <Divider type="vertical" /> 字数：{info.words} <Divider type="vertical" /> 更新时间：{new Date(info.ctime * 1000).toLocaleDateString()}</Text>
                                     <Divider dashed /><br />
-                                    {data.map(d => {
+                                    {data.split("|").map((d, n) => {
                                         return (
-                                            <Paragraph key={d.id} >&#12288;&#12288;{d.paragraph}</Paragraph>
+                                            <Paragraph key={n} >&#12288;&#12288;{d}</Paragraph>
                                         );
                                     })}
                                 </Typography>
