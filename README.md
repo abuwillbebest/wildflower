@@ -32,7 +32,7 @@ const App = () => (
           <Route path="/type/:id" component={LOT} /> //类型
           <Route path="/chapters/:id" component={LOC} /> //章节
           <Route path="/content/:id" component={ShowContent} /> //正文
-          <Route path="/search" component={SC} /> //搜索 未实现
+          <Route path="/search" component={SC} /> //搜索
           <Route path="/about" component={About} />
         </div>
       </Content>
@@ -75,7 +75,9 @@ ReactDom.render(<App />, document.getElementById('root'));
 
 
 
+### 搜索组件
 
+![1571119990282](README.assets/1571119990282.png)
 
 
 

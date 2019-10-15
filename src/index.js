@@ -20,23 +20,23 @@ const { Header, Content, Footer } = Layout;
 const Home = function () {
   return (
     <div>
-    <Carousel autoplay effect="fade">
-      <div>
-        <img src='src/img/x1.jpg' alt="x1" />
-      </div>
-      <div>
-        <img src='src/img/x2.jpg' alt="x2" />
-      </div>
-      <div>
-        <img src='src/img/x3.jpg' alt="x3" />
-      </div>
-      <div>
-        <img src='src/img/x4.jpg' alt="x4" />
-      </div>
-      <div>
-        <img src='src/img/x5.jpg' alt="x5" />
-      </div>
-    </Carousel>
+      <Carousel autoplay effect="fade">
+        <div>
+          <img src='src/img/x1.jpg' alt="x1" />
+        </div>
+        <div>
+          <img src='src/img/x2.jpg' alt="x2" />
+        </div>
+        <div>
+          <img src='src/img/x3.jpg' alt="x3" />
+        </div>
+        <div>
+          <img src='src/img/x4.jpg' alt="x4" />
+        </div>
+        <div>
+          <img src='src/img/x5.jpg' alt="x5" />
+        </div>
+      </Carousel>
     </div>
   )
 };
@@ -67,6 +67,7 @@ const App = () => (
           <Menu.Item key="qihuan"><Link to="/type/1"><Icon type="appstore" />奇幻玄幻</Link></Menu.Item>
           <Menu.Item key="wuxia"><Link to="/type/2"><Icon type="appstore" />武侠仙侠</Link></Menu.Item>
           <Menu.Item key="about"><Link to="/about"><Icon type="heart" />关于</Link></Menu.Item>
+          <Menu.Item key="search"><Link to="/search"><Icon type="search" />搜索</Link></Menu.Item>
         </Menu>
       </Header>
       <Content style={{ padding: '12px 200px' }}>

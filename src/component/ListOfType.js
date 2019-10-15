@@ -43,7 +43,7 @@ class LOT extends React.Component {
       const info = this.props.service.info;
       const pagination = this.props.service.pagination;
       return (
-        <div>
+        <div width='80%'>
           <Breadcrumb>
             <Breadcrumb.Item href="/">
               <Icon type="home" />

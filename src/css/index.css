@@ -1,5 +1,4 @@
 @import '~antd/dist/antd.css';
-
 .logo {
   font-size: 20px;
   font-style: italic;
@@ -9,13 +8,21 @@
   text-decoration: none;
   width: 120px;
   height: 31px;
-  /* background: rgba(255, 255, 255, 0.2); */
   background: rgba(248, 252, 21, 0.411);
   margin: 16px 24px 16px 0;
   float: left;
+  -moz-user-select: none;
+  /*火狐*/
+  -webkit-user-select: none;
+  /*webkit浏览器*/
+  -ms-user-select: none;
+  /*IE10*/
+  -khtml-user-select: none;
+  /*早期浏览器*/
+  user-select: none;
 }
 
 img {
-  width:100%;
-height:auto;
+  width: 100%;
+  height: auto;
 }

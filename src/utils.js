@@ -48,4 +48,21 @@ function parse_qs(qs, re = /(\w+)=([^&]+)/) {
     return obj;
 }
 
+
+
+// const specialCharater = new RegExp("[`~!@#$%^&*()\\-+={}':;,\\[\\].<>/?￥…（）_|【】‘；：”“’。，、？\\s]");
+
+// function keyRender(text, key) {
+//   if (key && text && typeof text === 'string' && typeof key === 'string') {
+//     const keyArr = key.split(specialCharater).filter(k => k);
+//     const newText = text.replace(
+//       new RegExp(keyArr.join("|"), "ig"),
+//       str => `<Fragment class="redTip">${str}</Fragment>`
+//     );
+//     return (<span dangerouslySetInnerHTML={{ __html: newText }} />);
+//   } else {
+//     return text;
+//   }
+// }
+
 export { inject, parse_qs, paging };

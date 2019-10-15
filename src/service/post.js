@@ -8,15 +8,15 @@ export default class PostService {
         this.axios = axios.create({
             baseURL: '/api/post/'
         });
-        this.heads = {"title": "title", "desc": "desc...", "tags": "tag"};
+        this.heads = { "title": "title", "desc": "desc...", "tags": "tag" };
     }
 
     @observable posts = [];
     @observable pagination = { page: 1, size: 20, pages: 0, count: 0 }
-    @observable errMsg = ''; 
+    @observable errMsg = '';
 
     listoftype(typeid, search) {
-        this.axios.get(typeid+search).then(
+        this.axios.get(typeid + search).then(
             response => {
                 this.info = response.data.info;
                 this.posts = response.data.posts;
@@ -32,7 +32,7 @@ export default class PostService {
 
 
     listofchapters(cid, search) {
-        this.axios.get('chapters/'+cid+search).then(
+        this.axios.get('chapters/' + cid + search).then(
             response => {
                 this.heads = response.data.header;
                 this.posts = response.data.posts;
@@ -48,7 +48,7 @@ export default class PostService {
     }
 
     showcontent(tid, search) {
-        this.axios.get('showcontent/'+tid+search).then(
+        this.axios.get('showcontent/' + tid + search).then(
             response => {
                 response.data.info.tid = tid;
                 this.info = response.data.info;
@@ -57,6 +57,26 @@ export default class PostService {
         ).catch(
             error => {
                 this.errMsg = '信息获取失败';
+                console.log(error);
+            }
+        )
+    }
+
+    finder(key) {
+        if (key == '') {
+            this.posts = [];
+            return
+        }
+        
+        this.axios.post('search', {
+            words: key
+        }).then(
+            response => {
+                this.posts = response.data.results;
+            }
+        ).catch(
+            error => {
+                this.errMsg = '获取结果失败';
                 console.log(error);
             }
         )
